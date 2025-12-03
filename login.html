@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Sign In — Blue Professional</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="page">
+        <div class="brand">
+            <h1>MySite</h1>
+            <p class="tag">Secure access portal</p>
+        </div>
+
+        <div class="main-box">
+            <!-- spacer area left -->
+            <div class="spacer"></div>
+
+            <div class="right-column">
+                <!-- ADMIN LOGIN -->
+                <div class=" card admin-card">
+                    <h2>Admin Login</h2>
+                    <form id="adminForm" autocomplete="off">
+                        <label for="adminUser">Admin Username</label>
+                        <input id="adminUser" type="text">
+
+                        <label for="adminPass">Password</label>
+                        <input id="adminPass" type="password">
+
+                        <button class="btn" type="submit">Login</button>
+                        <p class="error small" id="adminError"></p>
+                        
+                    </form>
+                </div>
+
+                <!-- USER LOGIN -->
+                <div class=" card user-card">
+                    <h2>User Login</h2>
+                    <form id="userLoginForm" autocomplete="off">
+                        <label for="userEmail">Email</label>
+                        <input id="userEmail" type="email" placeholder="you@example.com">
+
+                        <label for="userPass">Password</label>
+                        <div class="password-box">
+                            <input id="userPass" type="password" placeholder="Your password">
+                            <span id="toggleUserEye" title="Show / hide">👁️</span>
+                        </div>
+
+                        <label>Enter CAPTCHA</label>
+                        <div class="captcha-row">
+                            <span id="captchaText" class="captcha-text"></span>
+                            <button type="button" id="refreshCaptcha" class="refresh">↻</button>
+                        </div>
+                        <input id="captchaInput" type="text" placeholder="Enter CAPTCHA">
+
+                        <p class="error small" id="captchaError"></p>
+
+                        <button class="btn" type="submit">Login</button>
+                        <p class="error" id="userError"></p>
+                        <p class="success" id="userSuccess"></p>
+                         <!-- Forgot Password Popup -->
+                        <div id="forgotPopup" class="popup">
+    <div class="popup-content">
+        <h3>Reset Password</h3>
+        <input type="email" id="resetEmail" placeholder="Enter your registered email">
+        <input type="password" id="newPass" placeholder="Enter new password">
+        <button id="resetBtn">Update Password</button>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+        <p id="resetMsg"></p>
+    </div>
+</div>
+
+                        <div class="links-row">
+                            <a href="register.html">New user? Register</a>
+                            <p class="forgot" onclick="openPopup()">Forgot Password?</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="login.js"></script>
+</body>
+</html>
+
