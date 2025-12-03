@@ -1,47 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
     <title>Admin Dashboard</title>
     <style>
-        body {
-            font-family: Arial;
-            background: #f0f0f0;
-            padding: 20px;
-        }
-        .box {
-            background:white;
-            padding:20px;
-            width:350px;
-            border-radius:10px;
-            margin:auto;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 { text-align:center; }
+        body { font-family: Arial, Helvetica, sans-serif; margin:0; background:#f4f7fb; color:#1b2835 }
+        header { background:#0b63c6; color:#fff; padding:18px 22px; }
+        header h1{ margin:0; font-size:20px }
+        .container{ max-width:1100px; margin:20px auto; padding:0 18px; }
+        #addUserBox{ background:#fff; padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(11,99,198,0.05);
+                    margin-bottom:18px; border:1px solid rgba(11,99,198,0.06) }
+        #addUserBox input{ width:calc(33% - 10px); padding:10px; margin-right:12px; border-radius:8px; border:1px solid #e6f0ff }
+        #addUserBox button{ padding:10px 14px; border-radius:8px; background:#0b63c6; color:#fff; border:none; cursor:pointer }
+        table{ width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; }
+        th, td{ padding:12px; border-bottom:1px solid #eef6ff; text-align:left }
+        th{ background:#f7fbff; color:#0b63c6; font-weight:700 }
+        .del-btn{ background:#cc2f2f; color:#fff; padding:6px 10px; border-radius:6px; border:none; cursor:pointer }
+        .top-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+        .small-muted{ color:#6b7a86; font-size:13px }
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+        </div>
+    </header>
 
-<div class="box">
-    <h2>Admin Dashboard</h2>
-    <h4>Logged-in Users:</h4>
+    <div class="container">
+        <div class="top-row">
+            <div>
+                <h3 style="margin:0">Manage Users</h3>
+                <p class="small-muted">Add, delete and view registered users</p>
+            </div>
+        </div>
 
-    <ul id="userList"></ul>
+        <div id="addUserBox">
+            <input id="newName" placeholder="Name" />
+            <input id="newEmail" placeholder="Email" />
+            <input id="newPass" placeholder="Password" type="password" />
+            <button onclick="addUser()">Add User</button>
+        </div>
 
-    <p style="text-align:center; margin-top:10px;">
-        <a href="admin_login.html">Logout</a>
-    </p>
-</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:28%">Name</th>
+                    <th style="width:28%">Email</th>
+                    <th style="width:24%">Last Login</th>
+                    <th style="width:20%">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable"></tbody>
+        </table>
+    </div>
 
-<script>
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    let list = document.getElementById("userList");
-
-    users.forEach(u => {
-        let li = document.createElement("li");
-        li.textContent = u;
-        list.appendChild(li);
-    });
-</script>
-
+<script src="dashboard.js"></script>
 </body>
 </html>
+
