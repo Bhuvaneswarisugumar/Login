@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Register — Blue Professional</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="reg-page">
+        <div class="reg-card">
+            <h2>Create Account</h2>
+
+            <form id="registerForm" autocomplete="off">
+                <label for="regName">Full Name</label>
+                <input id="regName" type="text" placeholder="Your full name">
+
+                <label for="regEmail">Email</label>
+                <input id="regEmail" type="email" placeholder="you@example.com">
+
+                <label for="regPass">Password</label>
+                <input id="regPass" type="password" placeholder="Choose a secure password">
+
+                <button class="btn" type="submit">Register</button>
+
+                <p class="success" id="regSuccess"></p>
+                <p class="error" id="regError"></p>
+
+                <p class="small-link">Already have an account? <a href="login.html">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+
+<script src="register.js"></script>
+</body>
+</html>
